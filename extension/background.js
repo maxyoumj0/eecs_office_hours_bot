@@ -1,1 +1,42 @@
-var _0x2d84ad=_0x46dc;function _0x46dc(_0x499c43,_0x28f9ab){var _0x553386=_0x5533();return _0x46dc=function(_0x46dc77,_0x341442){_0x46dc77=_0x46dc77-0xa0;var _0x55e5e5=_0x553386[_0x46dc77];return _0x55e5e5;},_0x46dc(_0x499c43,_0x28f9ab);}function _0x5533(){var _0x47261d=['addListener','error','14xnNNEx','value','2841680tGnXGw','onUpdated','POST','then','https://eecsoh.eecs.umich.edu/','580001NBshsl','http://localhost:8081/send_session/','769500fKqwPn','get','1061418qmjNTd','log','5diLtyb','session','cookies','1680pLbpTz','create','url','text','24FlqVNm','3583647AOJGkf','120gLvYmZ','onClicked','https://eecsoh.eecs.umich.edu/api/oauth2login','128062PvqwxZ','action','append'];_0x5533=function(){return _0x47261d;};return _0x5533();}(function(_0x2d5a6b,_0x48dd48){var _0x523a00=_0x46dc,_0x4c035b=_0x2d5a6b();while(!![]){try{var _0x4fdf0b=parseInt(_0x523a00(0xb0))/0x1+parseInt(_0x523a00(0xbd))/0x2*(parseInt(_0x523a00(0xb9))/0x3)+parseInt(_0x523a00(0xb2))/0x4+parseInt(_0x523a00(0xb6))/0x5*(-parseInt(_0x523a00(0xb4))/0x6)+parseInt(_0x523a00(0xa9))/0x7*(-parseInt(_0x523a00(0xab))/0x8)+parseInt(_0x523a00(0xa0))/0x9+-parseInt(_0x523a00(0xa1))/0xa*(-parseInt(_0x523a00(0xa4))/0xb);if(_0x4fdf0b===_0x48dd48)break;else _0x4c035b['push'](_0x4c035b['shift']());}catch(_0x49bcb2){_0x4c035b['push'](_0x4c035b['shift']());}}}(_0x5533,0x68e5c),chrome['tabs'][_0x2d84ad(0xac)][_0x2d84ad(0xa7)](function(_0x14aac7,_0x28d678,_0xa611e2){var _0x1bf4a6=_0x2d84ad;console[_0x1bf4a6(0xb5)](_0x28d678[_0x1bf4a6(0xbb)]),_0x28d678[_0x1bf4a6(0xbb)]==_0x1bf4a6(0xaf)&&chrome[_0x1bf4a6(0xb8)][_0x1bf4a6(0xb3)]({'name':_0x1bf4a6(0xb7),'url':'https://eecsoh.eecs.umich.edu/'},_0x197e80=>{var _0x466768=_0x1bf4a6;console[_0x466768(0xb5)](_0x197e80);var _0xd91272=new FormData();_0xd91272[_0x466768(0xa6)](_0x466768(0xb7),_0x197e80[_0x466768(0xaa)]);var _0x17f884={'method':_0x466768(0xad),'body':_0xd91272,'redirect':'follow'};fetch(_0x466768(0xb1),_0x17f884)[_0x466768(0xae)](_0x285e86=>_0x285e86[_0x466768(0xbc)]())[_0x466768(0xae)](_0x4ac082=>console[_0x466768(0xb5)](_0x4ac082))['catch'](_0xa4b265=>console[_0x466768(0xb5)](_0x466768(0xa8),_0xa4b265));});}),chrome[_0x2d84ad(0xa5)][_0x2d84ad(0xa2)][_0x2d84ad(0xa7)](_0x982904=>{var _0x185a4a=_0x2d84ad;chrome['tabs'][_0x185a4a(0xba)]({'url':_0x185a4a(0xa3)});}));
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+    console.log(changeInfo.url);
+    if (changeInfo.url == "https://eecsoh.eecs.umich.edu/") {
+        chrome.cookies.get({"name": "session", "url": "https://eecsoh.eecs.umich.edu/"}, (cookie) => {
+            console.log(cookie)
+            var formdata = new FormData();
+            formdata.append("session", cookie.value);
+
+            var requestOptions = {
+              method: 'POST',
+              body: formdata,
+              redirect: 'follow'
+            };
+
+            fetch("http://localhost:8081/send_session_eecsoh/", requestOptions)
+              .then(response => response.text())
+              .then(result => console.log(result))
+              .catch(error => console.log('error', error));
+                    })
+                }
+
+    if (changeInfo.url == "https://oh.eecs.umich.edu/courses") {
+        chrome.cookies.getAll({domain: "oh.eecs.umich.edu"}, (cookie1) => {
+            console.log(cookie1)
+            var formdata = new FormData();
+            formdata.append(cookie1[0].name, cookie1[0].value);
+            formdata.append(cookie1[1].name, cookie1[1].value);
+            console.log(formdata)
+
+            var requestOptions = {
+              method: 'POST',
+              body: formdata,
+              redirect: 'follow'
+            };
+
+            fetch("http://localhost:8081/send_session_oh/", requestOptions)
+              .then(response => response.text())
+              .then(result => console.log(result))
+              .catch(error => console.log('error', error));
+        })
+    }
+});
