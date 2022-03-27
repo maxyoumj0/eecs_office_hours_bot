@@ -10,7 +10,3 @@
 
 # Unpacking Chrome Extension
 https://webkul.com/blog/how-to-install-the-unpacked-extension-in-chrome/
-
-# Current Issues
-
-1. Requires the course to be on https://eecsoh.eecs.umich.edu/
