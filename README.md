@@ -1,4 +1,4 @@
-# ohbot
+# EECS Office Hours Bot
 
 # Setup
 
