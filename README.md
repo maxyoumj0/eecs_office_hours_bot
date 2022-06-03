@@ -1,14 +1,23 @@
 # EECS Office Hours Bot
 
+# Registering
+
+1. Turn on bot
+2. Go to register by pressing '2' and 'enter'
+3. Enter email and password
+4. Subscribe using links provided by the bot **MAKE SURE TO USE THE SAME EMAIL IN CHECKOUT**
+5. Wait for bot to provide temporary 2FA key
+6. Download Google Authenticator application
+7. Click plus button on bottom right
+8. Click "Enter a setup key" button
+9. Name the account and enter key received when registering then click "Add" button
+
 # Setup
 
 1. Go on Chrome and turn on developer mode
 2. Click "Load Unpacked" on top left
 3. Select the extensions folder
-4. Download Google Authenticator application
-5. Click plus button on bottom right
-6. Click "Enter a setup key" button
-7. Name the account and enter key provided by admin then click "Add" button
+
 
 # Usage
 
