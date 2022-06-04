@@ -14,9 +14,11 @@
 
 # Setup
 
-1. Go on Chrome and turn on developer mode
-2. Click "Load Unpacked" on top left
-3. Select the extensions folder
+1. Go on Chrome and click button with 3 dots on top right
+2. Click 'more tools' and 'extensions'
+3. Turn on developer mode on top right
+4. Click "Load Unpacked" on top left
+5. Select the extensions folder
 
 
 # Usage
